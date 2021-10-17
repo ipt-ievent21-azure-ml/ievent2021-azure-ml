@@ -9,8 +9,8 @@ Wir werden die Bildklassifizierung verwenden. Je nach Erfahrung könnt ihr aus d
 
 |                      |                                                |                                                             |
 | -------------------- | ---------------------------------------------- | ----------------------------------------------------------- |
-| **Einsteiger**       | ![Einsteiger](./images/beginner.png)           | [Custom Vision Website](./website/README.md) |
-| **Fortgeschrittene** | ![Fortgeschrittene](./images/intermediate.png) | [Custom Vision SDK](./sdk/README.md)         |
+| **Einsteiger**       | ![Einsteiger](../images/beginner.png)           | [Custom Vision Website](./website/README.md) |
+| **Fortgeschrittene** | ![Fortgeschrittene](../images/intermediate.png) | [Custom Vision SDK](./sdk/README.md)         |
 
 ## Referenzen
 
