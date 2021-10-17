@@ -29,7 +29,7 @@ Azure Custom Vision ist ein Bilderkennungsdienst, mit dem du deine eigenen Bilde
 
 Die Custom Vision-Funktionalität lässt sich in zwei Bereiche unterteilen. Bei der Bildklassifizierung werden einem Bild eine oder mehrere Kennzeichnungen zugewiesen. Die Objekterkennung ist ähnlich, gibt aber auch die Koordinaten im Bild zurück, an denen die angewandte(n) Kennzeichnung(en) zu finden sind.
 
-Wir werden die Bildklassifizierung verwenden. Je nach Erfahrung, könnt ihr aus den folgenden zwei Methoden auswählen:
+Wir werden die Bildklassifizierung verwenden. Je nach Erfahrung könnt ihr aus den folgenden zwei Methoden auswählen:
 
 |                      |                                                |                                                             |
 | -------------------- | ---------------------------------------------- | ----------------------------------------------------------- |
@@ -42,7 +42,7 @@ Azure Machine Learning ist ein Cloud-Service zur Beschleunigung und Verwaltung d
 
 Du kannst ein Modell in Azure Machine Learning erstellen oder ein Modell verwenden, das auf einer Open-Source-Plattform wie Pytorch, TensorFlow oder scikit-learn erstellt wurde. MLOps-Tools helfen dir, Modelle zu überwachen, neu zu trainieren und bereitzustellen.
 
-Wir werden dasselbe Model auf drei verschiedene Arten implementieren:
+Je nach Erfahrung könnt ihr aus den folgenden drei Methoden auswählen:
 
 |                      |                                                |                                                                      |
 | -------------------- | ---------------------------------------------- | -------------------------------------------------------------------- |
