@@ -22,7 +22,6 @@ Die Übungen sind nach Schwierigkeitsstufen aufgeteilt:
 | **Einsteiger**       | ![Einsteiger](./images/beginner.png)           |
 | **Fortgeschrittene** | ![Fortgeschrittene](./images/intermediate.png) |
 | **Experten**         | ![Experten](./images/expert.png)               |
-|                      |                                                |
 
 ## Custom Vision
 
@@ -36,7 +35,6 @@ Wir werden die Bildklassifizierung verwenden. Je nach Erfahrung, könnt ihr aus 
 | -------------------- | ---------------------------------------------- | ----------------------------------------------------------- |
 | **Einsteiger**       | ![Einsteiger](./images/beginner.png)           | [Custom Vision Website](01_custom_vision/website/README.md) |
 | **Fortgeschrittene** | ![Fortgeschrittene](./images/intermediate.png) | [Custom Vision SDK](01_custom_vision/sdk/README.md)         |
-|                      |                                                |                                                             |
 
 ## Azure Machine Learning
 
@@ -51,7 +49,6 @@ Wir werden dasselbe Model auf drei verschiedene Arten implementieren:
 | **Einsteiger**       | ![Einsteiger](./images/beginner.png)           | [Azure Machine Learning Automated ML](02_azure_ml/auto_ml/README.md) |
 | **Fortgeschrittene** | ![Fortgeschrittene](./images/intermediate.png) | [Azure Machine Learning Designer](02_azure_ml/designer/README.md)    |
 | **Experten**         | ![Experten](./images/expert.png)               | [Azure Machine Learning Code](02_azure_ml/code/README.md)            |
-|                      |                                                |                                                                      |
 
 ## MLOps
 
@@ -66,7 +63,6 @@ Wir werden einen MLOps Lifecycle mit Github Actions implementieren:
 |              |                                  |                                                |
 | ------------ | -------------------------------- | ---------------------------------------------- |
 | **Experten** | ![Experten](./images/expert.png) | [MLOps mit Github Actions](03_mlops/README.md) |
-|              |                                  |                                                |
 
 ## Weiterführende Informationen und Zertifizierungen
 
