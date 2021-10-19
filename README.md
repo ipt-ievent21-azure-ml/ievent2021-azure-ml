@@ -29,12 +29,17 @@ Azure Custom Vision ist ein Bilderkennungsdienst, mit dem du deine eigenen Bilde
 
 Die Custom Vision-Funktionalität lässt sich in zwei Bereiche unterteilen. Bei der Bildklassifizierung werden einem Bild eine oder mehrere Kennzeichnungen zugewiesen. Die Objekterkennung ist ähnlich, gibt aber auch die Koordinaten im Bild zurück, an denen die angewandte(n) Kennzeichnung(en) zu finden sind.
 
-Wir werden die Bildklassifizierung verwenden. Je nach Erfahrung könnt ihr aus den folgenden zwei Methoden auswählen:
+Die folgenden Beispiele verwenden Bildklassifizierung und je nach Erfahrung könnt ihr aus den folgenden zwei Methoden auswählen:
 
 |                      |                                                |                                                             |
 | -------------------- | ---------------------------------------------- | ----------------------------------------------------------- |
 | **Einsteiger**       | ![Einsteiger](./images/beginner.png)           | [Custom Vision Website](01_custom_vision/website/README.md) |
 | **Fortgeschrittene** | ![Fortgeschrittene](./images/intermediate.png) | [Custom Vision SDK](01_custom_vision/sdk/README.md)         |
+
+Ihr könnt natürlich auch eure eigene Objekterkennung implementieren:
+
+* [Quickstart: Build an object detector with the Custom Vision website](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/get-started-build-detector)
+* [Quickstart: Create an object detection project with the Custom Vision client library](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/quickstarts/object-detection?tabs=visual-studio&pivots=programming-language-python)
 
 ## Azure Machine Learning
 
