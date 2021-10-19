@@ -54,7 +54,9 @@ Wenn das Training fertig ist, zeigt Custom Vision Precision, Recall und die Perf
 
 ![Precision, recall and performance](images/precision_recall_ap.png)
 
+Am einfachsten kann man das Modell mit dem "Quick Test" ausprobieren:
 
+![Quick Test](images/quick_test.png)
 
 ## Referenzen
 
