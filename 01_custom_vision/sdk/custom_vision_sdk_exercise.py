@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
 from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
 from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateBatch, ImageFileCreateEntry, Region
@@ -27,39 +29,40 @@ trainer = CustomVisionTrainingClient(ENDPOINT, credentials)
 
 # Create a new project
 print("Creating project...")
-project_name = uuid.uuid4()
-project = trainer.create_project(project_name)
-
-# Make two tags in the new project
-hemlock_tag = trainer.create_tag(project.id, "Hemlock")
-cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
+project_name = "The Simpsons Classifier (SDK)"
+project = trainer.create_project(
+    project_name,
+    description="Classify your favorite characters from The Simpsons",
+    domain_id="2e37d7fb-3a54-486a-b4d6-cfc369af0018",
+    classification_type="Multiclass")
 
 # Upload and tag images
-base_image_location = os.path.join(os.path.dirname(__file__), "Images")
+base_image_location = os.path.join(os.path.dirname(
+    __file__), "..", "dataset", "simpsons_dataset")
 
 print("Adding images...")
 
 image_list = []
 
-for image_num in range(1, 11):
-    file_name = "hemlock_{}.jpg".format(image_num)
-    with open(os.path.join(base_image_location, "Hemlock", file_name), "rb") as image_contents:
-        image_list.append(ImageFileCreateEntry(
-            name=file_name, contents=image_contents.read(), tag_ids=[hemlock_tag.id]))
+for dir in os.listdir(base_image_location):
+    # Create tags
+    tag = trainer.create_tag(project.id, dir)
 
-for image_num in range(1, 11):
-    file_name = "japanese_cherry_{}.jpg".format(image_num)
-    with open(os.path.join(base_image_location, "Japanese_Cherry", file_name), "rb") as image_contents:
-        image_list.append(ImageFileCreateEntry(
-            name=file_name, contents=image_contents.read(), tag_ids=[cherry_tag.id]))
+    for image_num in range(0, 100):
+        file_name = f"pic_{str(image_num).zfill(4)}.jpg"
+        with open(os.path.join(base_image_location, dir, file_name), "rb") as image_contents:
+            image_list.append(ImageFileCreateEntry(
+                name=file_name, contents=image_contents.read(), tag_ids=[tag.id]))
 
-upload_result = trainer.create_images_from_files(
-    project.id, ImageFileCreateBatch(images=image_list))
-if not upload_result.is_batch_successful:
-    print("Image batch upload failed.")
-    for image in upload_result.images:
-        print("Image status: ", image.status)
-    exit(-1)
+for i in range(0, len(image_list), 64):
+    batch = image_list[i:i+64]
+    upload_result = trainer.create_images_from_files(
+        project.id, ImageFileCreateBatch(images=batch))
+    if not upload_result.is_batch_successful:
+        print("Image batch upload failed.")
+        for image in upload_result.images:
+            print("Image status: ", image.status)
+        exit(-1)
 
 # Train the project
 print("Training...")
@@ -80,7 +83,10 @@ prediction_credentials = ApiKeyCredentials(
     in_headers={"Prediction-key": prediction_key})
 predictor = CustomVisionPredictionClient(ENDPOINT, prediction_credentials)
 
-with open(os.path.join(base_image_location, "Test/test_image.jpg"), "rb") as image_contents:
+test_image_location = os.path.join(os.path.dirname(
+    __file__), "..", "dataset", "simpsons_testset")
+
+with open(os.path.join(test_image_location, "maggie_simpson_0.jpg"), "rb") as image_contents:
     results = predictor.classify_image(
         project.id, publish_iteration_name, image_contents.read())
 
@@ -89,10 +95,10 @@ with open(os.path.join(base_image_location, "Test/test_image.jpg"), "rb") as ima
         print("\t" + prediction.tag_name +
               ": {0:.2f}%".format(prediction.probability * 100))
 
-# Unpublish the project
-print("Unpublishing project...")
-trainer.unpublish_iteration(project.id, iteration.id)
+# # Unpublish the project
+# print("Unpublishing project...")
+# trainer.unpublish_iteration(project.id, iteration.id)
 
-# Delete the project
-print("Deleting project...")
-trainer.delete_project(project.id)
+# # Delete the project
+# print("Deleting project...")
+# trainer.delete_project(project.id)
