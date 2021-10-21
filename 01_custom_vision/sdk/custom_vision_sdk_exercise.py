@@ -54,6 +54,7 @@ for dir in os.listdir(base_image_location):
             image_list.append(ImageFileCreateEntry(
                 name=file_name, contents=image_contents.read(), tag_ids=[tag.id]))
 
+# Upload images in batches
 for i in range(0, len(image_list), 64):
     batch = image_list[i:i+64]
     upload_result = trainer.create_images_from_files(
