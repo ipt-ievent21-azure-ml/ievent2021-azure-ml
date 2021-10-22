@@ -10,7 +10,7 @@
 
 Dies ist das Repository für die "Hitchhiker's Guide to Azure Machine Learning" Technology Session am i-Event 2021.
 
-Auf [Happeo](https://app.happeo.com/pages/1e1oopl952ukqf9e0h/AzureAmpDu/1e5g766dso0ms8i9mp) findest du Informationen zum Azure Login und Sign-up.
+Auf [Happeo](https://app.happeo.com/pages/1e1oopl952ukqf9e0h/AzureAmpDu/1e5g766dso0ms8i9mp) findest du Informationen zum Azure Login und [Sign-up](https://ipt-sandbox-selfservice.azurewebsites.net/signup).
 
 ![Don't Panic](./images/dont_panic.jpg)
 
