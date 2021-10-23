@@ -64,9 +64,11 @@ Um das Dataset zu erstellen, öffne im Menü auf der linken Seite "Dataset", kli
 
 ![Create dataset](images/create_dataset_1.png)
 
-Selektiere "Sample: Diabetes" und erstelle ein neues Dataset basierend darauf mit dem Name "diabetes":
+Selektiere "Sample: Diabetes":
 
 ![Create dataset](images/create_dataset_2.png)
+ 
+Erstelle ein neues Dataset basierend auf dem Sample mit dem Namen "diabetes":
 
 ![Create dataset](images/create_dataset_3.png)
 
@@ -94,7 +96,7 @@ Wähle "Regression" als Task Type:
 
 ![AutoML: Select task type](images/automl_4.png)
 
-AutoML benötigt etwa eine Stunde, um das Training der 100 Modelle abzuschliessen. Du musst nicht bis zum Schluss warten und kannst auch vor dem Abschluss eines der Modelle deployen.
+AutoML benötigt etwa eine Stunde, um das Training aller Modelle abzuschliessen. Du musst nicht bis zum Schluss warten und kannst auch vor dem Abschluss eines der Modelle deployen.
 
 ## Das beste Modell deployen
 
