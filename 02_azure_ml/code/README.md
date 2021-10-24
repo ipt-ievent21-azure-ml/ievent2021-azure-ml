@@ -7,7 +7,7 @@
 - [Einführung](#einführung)
 - [Setup](#setup)
 - [Notebook und Compute Instanz erstellen](#notebook-und-compute-instanz-erstellen)
-- [Erstellen eines Modells mit scikit-Learn](#erstellen-eines-modells-mit-scikit-learn)
+- [Erstellen eines Modells mit scikit-learn](#erstellen-eines-modells-mit-scikit-learn)
   - [Daten importieren](#daten-importieren)
   - [Modell trainieren](#modell-trainieren)
   - [Modell registrieren](#modell-registrieren)
@@ -26,7 +26,7 @@ Du lernst dabei folgendes:
 
 * Erstellen eines Jupyter Notebooks
 * Erstellen einer Azure Machine Learning Compute Instanz
-* Trainieren eines Regressionsmodells mit scikit-Learn
+* Trainieren eines Regressionsmodells mit scikit-learn
 * Erstellen eines Scoring-Skripts
 * Bereitstellung des Modells als Web Service
 * Aufrufen des Modells als Web Service
@@ -63,7 +63,7 @@ Drücke dann Shift + Enter, Control + Enter oder klicke "Run cell":
 
 ![Run code](images/create_notebook_3.png)
 
-## Erstellen eines Modells mit scikit-Learn
+## Erstellen eines Modells mit scikit-learn
 
 In diesem Tutorial verwenden wir das Diabetes Dataset von [Azure Open Datasets](https://azure.microsoft.com/en-us/services/open-datasets/#overview).
 
