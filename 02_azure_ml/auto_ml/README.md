@@ -114,9 +114,13 @@ Nach dem Klicken auf "Deploy", solltest du eine Meldung sehen, dass das Modell e
 
 Unter "Endpoints" findest du das "diabetes-model" und den entsprechenden REST Endpoint:
 
-![Deploy model](images/endpoint.png)
+![Deploy model](images/endpoint_1.png)
 
-Zum Aufrufen kannst du zum Beispiel `curl` verwenden:
+Zum Aufrufen kannst du die Registerkarte "Test" nutzen:
+
+![Test Web Service](images/endpoint_2.png)
+
+Du kannst den Web Service auch mit `curl` testen:
 
 ```bash
 #!/usr/bin/env bash
