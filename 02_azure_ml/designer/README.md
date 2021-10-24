@@ -147,9 +147,13 @@ Es dauert einige Minuten bis der Endpoint bereit ist. Gehe zu "Endpoint" und wä
 
 ![Endpoint details](images/consume_1.png)
 
+Du kannst den Web Service in der Registerkarte "Test" testen:
+
+![Endpoint test](images/consume_2.png)
+
 Standardmässig wird beim Endpoint die schlüsselbasierte Authentifizierung aktiviert. Um den Service aufzurufen, benötigst du die Informationen in der Registerkarte "Consume":
 
-![Endpoint details](images/consume_2.png)
+![Endpoint consume](images/consume_3.png)
 
 Hier findest du auch Beispielcode in C#, Python und R. [diabetes_client.py](diabetes_client.py) ist eine Python Beispielsapplikation und ruft den Webservice auf:
 
