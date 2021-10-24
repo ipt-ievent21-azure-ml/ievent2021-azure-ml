@@ -68,7 +68,7 @@ Wir werden einen MLOps Lifecycle mit GitHub Actions implementieren:
 
 |              |                                  |                                                |
 | ------------ | -------------------------------- | ---------------------------------------------- |
-| **Experten** | ![Experten](./images/expert.png) | [MLOps mit Github Actions](03_mlops/README.md) |
+| **Experten** | ![Experten](./images/expert.png) | [MLOps mit GitHub Actions](03_mlops/README.md) |
 
 ## Ressourcen aufräumen
 
