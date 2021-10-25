@@ -5,14 +5,14 @@
 
 ## Übungen
 
-Wir werden die Bildklassifizierung verwenden. Je nach Erfahrung könnt ihr aus den folgenden zwei Methoden auswählen:
+Die folgenden Tutorials benutzen Bildklassifizierung und je nach deiner Erfahrung kannst du aus den folgenden zwei Methoden auswählen:
 
-|                      |                                                |                                                             |
-| -------------------- | ---------------------------------------------- | ----------------------------------------------------------- |
-| **Einsteiger**       | ![Einsteiger](../images/beginner.png)           | [Custom Vision Website](./website/README.md) |
-| **Fortgeschrittene** | ![Fortgeschrittene](../images/intermediate.png) | [Custom Vision SDK](./sdk/README.md)         |
+|                      |                                                 |                                              |     |
+| -------------------- | ----------------------------------------------- | -------------------------------------------- | --- |
+| **Einsteiger**       | ![Einsteiger](../images/beginner.png)           | [Custom Vision: Website](./website/README.md) | 1h  |
+| **Fortgeschrittene** | ![Fortgeschrittene](../images/intermediate.png) | [Custom Vision: SDK](./sdk/README.md)         | 2h  |
 
-Ihr könnt natürlich auch eure eigene Objekterkennung implementieren:
+Du kannst auch beide Methoden ausprobieren oder deine eigene Objekterkennung mit Custom Vision implementieren:
 
 * [Quickstart: Build an object detector with the Custom Vision website](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/get-started-build-detector)
 * [Quickstart: Create an object detection project with the Custom Vision client library](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/quickstarts/object-detection?tabs=visual-studio&pivots=programming-language-python)
