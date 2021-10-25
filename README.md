@@ -9,14 +9,13 @@
 
 ## Einführung
 
-Dies ist das Repository für die "Hitchhiker's Guide to Azure Machine Learning" Technology Session am i-Event 2021.
+Willkommen zum "Hitchhiker's Guide to Azure Machine Learning" Repository für die Technology Session am i-Event 2021.
 
 Auf [Happeo](https://app.happeo.com/pages/1e1oopl952ukqf9e0h/AzureAmpDu/1e5g766dso0ms8i9mp) findest du Informationen zum Azure Login und [Sign-up](https://ipt-sandbox-selfservice.azurewebsites.net/signup).
 
 ![Don't Panic](./images/dont_panic.jpg)
 
-Die Übungen sind nach Schwierigkeitsstufen aufgeteilt:
-
+Die Tutorials sind nach Schwierigkeitsstufen aufgeteilt:
 
 |                      |                                                |
 | -------------------- | ---------------------------------------------- |
@@ -24,55 +23,61 @@ Die Übungen sind nach Schwierigkeitsstufen aufgeteilt:
 | **Fortgeschrittene** | ![Fortgeschrittene](./images/intermediate.png) |
 | **Experten**         | ![Experten](./images/expert.png)               |
 
+Je nach deiner Erfahrung kannst du dir auswählen, welches Tutorial du gerne machen möchtest. Für jedes Tutorial ist auch angegeben, wie lange es ungefähr dauert. Die Dauer ist jeweils inklusive der Bereitstellung der Infrastruktur in Azure und dem Training der Machine Learning Modelle. Bei den Tutorial Schritten ist ebenfalls vermerkt, wenn das Ausführen länger dauert. Du kannst diese Zeit nutzen um ein anderes Tutorial zu beginnen.
+
 ## Custom Vision
 
-Azure Custom Vision ist ein Bilderkennungsdienst, mit dem du deine eigenen Bilderkennungsmodelle erstellen, einsetzen und verbessern kannst. Ein Bilderkennungsmodell versieht Bilder mit Kennzeichnungen (die Klassifizierungen oder Objekte darstellen), die auf den erkannten visuellen Merkmalen basieren. Im Gegensatz zum Computer Vision Service kannst du bei Custom Vision deine eigenen Labels angeben und eigene Modelle trainieren, um sie zu erkennen.
+Azure Custom Vision ist ein Bilderkennungsdienst, mit dem du deine eigenen Bilderkennungsmodelle erstellen, einsetzen und verbessern kannst. Ein Bilderkennungsmodell versieht Bilder mit Labels (die Klassifizierungen oder Objekte darstellen), die auf den erkannten visuellen Merkmalen basieren. Im Gegensatz zum Computer Vision Service kannst du bei Custom Vision deine eigenen Labels angeben und eigene Modelle trainieren, um sie zu erkennen.
 
-Die Custom Vision-Funktionalität lässt sich in zwei Bereiche unterteilen. Bei der Bildklassifizierung werden einem Bild eine oder mehrere Kennzeichnungen zugewiesen. Die Objekterkennung ist ähnlich, gibt aber auch die Koordinaten im Bild zurück, an denen die angewandte(n) Kennzeichnung(en) zu finden sind.
+Die Custom Vision-Funktionalität lässt sich in zwei Bereiche unterteilen:
+- Bei der Bildklassifizierung werden einem Bild eine oder mehrere Labels zugewiesen
+- Die Objekterkennung ist ähnlich, gibt aber auch die Koordinaten im Bild zurück, an denen die angewandte(n) Labels zu finden sind
 
-Die folgenden Beispiele verwenden Bildklassifizierung und je nach Erfahrung könnt ihr aus den folgenden zwei Methoden auswählen:
+Die folgenden Tutorials benutzen Bildklassifizierung und je nach deiner Erfahrung kannst du aus den folgenden zwei Methoden auswählen:
 
-|                      |                                                |                                                             |
-| -------------------- | ---------------------------------------------- | ----------------------------------------------------------- |
-| **Einsteiger**       | ![Einsteiger](./images/beginner.png)           | [Custom Vision Website](01_custom_vision/website/README.md) |
-| **Fortgeschrittene** | ![Fortgeschrittene](./images/intermediate.png) | [Custom Vision SDK](01_custom_vision/sdk/README.md)         |
+|                      |                                                |                                                              |            |
+| -------------------- | ---------------------------------------------- | ------------------------------------------------------------ | ---------- |
+| **Einsteiger**       | ![Einsteiger](./images/beginner.png)           | [Custom Vision: Website](01_custom_vision/website/README.md) | 20 Minuten |
+| **Fortgeschrittene** | ![Fortgeschrittene](./images/intermediate.png) | [Custom Vision: SDK](01_custom_vision/sdk/README.md)         | 20 Minuten |
 
-Ihr könnt natürlich auch eure eigene Objekterkennung implementieren:
+Du kannst auch beide Methoden ausprobieren oder deine eigene Objekterkennung mit Custom Vision implementieren:
 
 * [Quickstart: Build an object detector with the Custom Vision website](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/get-started-build-detector)
 * [Quickstart: Create an object detection project with the Custom Vision client library](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/quickstarts/object-detection?tabs=visual-studio&pivots=programming-language-python)
 
 ## Azure Machine Learning
 
-Azure Machine Learning ist ein Cloud-Service zur Beschleunigung und Verwaltung des Lebenszyklus von Machine Learning-Projekten. Spezialisten für maschinelles Lernen, Data Scientists und Engineers können ihn für ihre täglichen Arbeitsabläufe nutzen: Modelle trainieren und bereitstellen und MLOps verwalten.
+Azure Machine Learning ist ein Cloud Service zur Beschleunigung und Verwaltung des Lebenszyklus von Machine Learning Projekten. Spezialisten für maschinelles Lernen, Data Scientists und Engineers können ihn für ihre täglichen Arbeitsabläufe nutzen: Modelle trainieren und deployen und MLOps managen.
 
-Du kannst ein Modell in Azure Machine Learning erstellen oder ein Modell verwenden, das auf einer Open-Source-Plattform wie Pytorch, TensorFlow oder scikit-learn erstellt wurde. MLOps-Tools helfen dir, Modelle zu überwachen, neu zu trainieren und bereitzustellen.
+Du kannst ein Modell in Azure Machine Learning erstellen oder ein Modell verwenden, das auf einer Open Source Plattform wie Pytorch, TensorFlow oder scikit-learn erstellt wurde. MLOps Tools helfen dir, Modelle zu überwachen, neu zu trainieren und bereitzustellen.
 
-Je nach Erfahrung könnt ihr aus den folgenden drei Methoden auswählen:
+Je nach Erfahrung kannst du aus den folgenden drei Tutorials auswählen:
 
-|                      |                                                |                                                                      |
-| -------------------- | ---------------------------------------------- | -------------------------------------------------------------------- |
-| **Einsteiger**       | ![Einsteiger](./images/beginner.png)           | [Azure Machine Learning Automated ML](02_azure_ml/auto_ml/README.md) |
-| **Fortgeschrittene** | ![Fortgeschrittene](./images/intermediate.png) | [Azure Machine Learning Designer](02_azure_ml/designer/README.md)    |
-| **Experten**         | ![Experten](./images/expert.png)               | [Azure Machine Learning Code](02_azure_ml/code/README.md)            |
+|                      |                                                |                                                                       |            |
+| -------------------- | ---------------------------------------------- | --------------------------------------------------------------------- | ---------- |
+| **Einsteiger**       | ![Einsteiger](./images/beginner.png)           | [Azure Machine Learning: Automated ML](02_azure_ml/auto_ml/README.md) | 45 Minuten |
+| **Fortgeschrittene** | ![Fortgeschrittene](./images/intermediate.png) | [Azure Machine Learning: Designer](02_azure_ml/designer/README.md)    | 60 Minuten |
+| **Experten**         | ![Experten](./images/expert.png)               | [Azure Machine Learning: Code](02_azure_ml/code/README.md)            | 60 Minuten |
+
+Du kannst auch mehrere Methoden ausprobieren.
 
 ## MLOps
 
-MLOps unterstützt Data Scientists und App-Entwickler dabei, ML-Modelle in die Produktion zu bringen. MLOps ermöglicht es dir, jedes Asset in deinem ML-Lifecycle zu verfolgen, zu versionieren, zu prüfen, zu zertifizieren und wiederzuverwenden und bietet Orchestrierungsdienste, um die Verwaltung dieses Lifecycles zu optimieren.
+MLOps unterstützt Data Scientists und App Entwickler dabei, Machine Learning Modelle in die Produktion zu bringen. MLOps ermöglicht es dir, jedes Asset in deinem Machine Learning Lifecycle zu verfolgen, zu versionieren, zu prüfen, zu zertifizieren und wiederzuverwenden und bietet Orchestrierungsdienste, um die Verwaltung dieses Lifecycles zu optimieren.
 
 Azure ML enthält eine Reihe von Asset-Management- und Orchestrierungsdiensten, die dir helfen, den Lifecycle deiner Modelltrainings- und Deployment-Workflows zu verwalten.
 
 ![ML Lifecycle](./images/ml-lifecycle.png)
 
-Wir werden einen MLOps Lifecycle mit GitHub Actions implementieren:
+In diesem Tutorial wirst du einen MLOps Lifecycle mit GitHub Actions implementieren:
 
-|              |                                  |                                                |
-| ------------ | -------------------------------- | ---------------------------------------------- |
-| **Experten** | ![Experten](./images/expert.png) | [MLOps mit GitHub Actions](03_mlops/README.md) |
+|              |                                  |                                             |            |
+| ------------ | -------------------------------- | ------------------------------------------- | ---------- |
+| **Experten** | ![Experten](./images/expert.png) | [MLOps: GitHub Actions](03_mlops/README.md) | 90 Minuten |
 
 ## Ressourcen aufräumen
 
-Wenn deine Ressourcengruppe nicht mehr benötigt wird, löschst du die Ressourcen, die du bereitgestellt hast, indem du die Ressourcengruppe löschst.
+Wenn deine Ressourcengruppe nicht mehr benötigt wird, löschst du die Ressourcen, die du erstellt hast, indem du die Ressourcengruppe löschst.
 
 ## Weiterführende Informationen und Zertifizierungen
 
