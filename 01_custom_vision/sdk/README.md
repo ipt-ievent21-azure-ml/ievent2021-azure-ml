@@ -19,7 +19,7 @@
 
 ## Einführung
 
-In dieser Übung verwendest du das Custom Vision Python SDK um ein Projekt zu erstellen, Tags hinzufügen, das Projekt zu trainieren und um es zu testen.
+In dieser Übung verwendest du das Custom Vision Python SDK, um ein Projekt zu erstellen, Tags hinzufügen, das Projekt zu trainieren und um es zu testen.
 
 Als Beispiel kannst du die Bilder der Simpsons im [dataset](../dataset) Ordner benutzen.
 
