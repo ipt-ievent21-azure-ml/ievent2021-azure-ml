@@ -1,8 +1,8 @@
-# Custom Vision: Erstellen einer Klassifizierung mit der Custom Vision-Website
+# Custom Vision: Website
 
-|              |                                  |
-| ------------ | -------------------------------- |
-| **Einsteiger** | ![Einsteiger](../../images/beginner.png) |
+|                |                                          |     |
+| -------------- | ---------------------------------------- | --- |
+| **Einsteiger** | ![Einsteiger](../../images/beginner.png) | 20 Minuten  |
 
 - [Einführung](#einführung)
 - [Projekt und Resource erstellen](#projekt-und-resource-erstellen)
@@ -26,7 +26,14 @@ Erstelle ein neues Projekt:
 
 ![Create new project](images/create_new_project.png)
 
-Erstelle eine neue Custom Vision Resource. Dazu musst du zuerst eine neue Resource Group in "West Europe" erstellen und dann die neue Custom Vision Resource dieser Gruppe zuweisen:
+Erstelle eine neue Custom Vision Ressource. Dazu musst du zuerst eine neue Resource Group in "West Europe" erstellen und dann die neue Custom Vision Resource dieser Gruppe zuweisen.
+
+Verwende folgende Naming Conventions und benutze dein ipt-Kürzel als Prefix:
+
+| Asset Type         | Abkürzung | Beispiel         |
+| ------------------ | --------- | ---------------- |
+| Resource Group     | rg        | twe-rg-ievent21  |
+| Cognitive Services | cog       | twe-cog-ievent21 |
 
 ![Create new resource](images/create_new_resource.png)
 
@@ -54,7 +61,7 @@ Wenn das Training fertig ist, zeigt Custom Vision Precision, Recall und die Perf
 
 ![Precision, recall and performance](images/precision_recall_ap.png)
 
-Am einfachsten kann man das Modell mit dem "Quick Test" ausprobieren:
+Am einfachsten kannst du das Modell mit dem "Quick Test" ausprobieren:
 
 ![Quick Test](images/quick_test.png)
 
