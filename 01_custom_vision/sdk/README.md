@@ -1,15 +1,15 @@
-# Custom Vision: Erstellen eines Bildklassifizierungsprojekts mit der Custom Vision-Client-Bibliothek
+# Custom Vision: SDK
 
-|                      |                                                    |
-| -------------------- | -------------------------------------------------- |
-| **Fortgeschrittene** | ![Fortgeschrittene](../../images/intermediate.png) |
+|                      |                                                    |            |
+| -------------------- | -------------------------------------------------- | ---------- |
+| **Fortgeschrittene** | ![Fortgeschrittene](../../images/intermediate.png) | 20 Minuten |
 
 - [Einführung](#einführung)
 - [Setup](#setup)
 - [Python Applikation erstellen](#python-applikation-erstellen)
 - [Code Snippets](#code-snippets)
   - [Authentifizierung des Clients](#authentifizierung-des-clients)
-  - [Erstellen eines neuen Custom Vision-Projekts](#erstellen-eines-neuen-custom-vision-projekts)
+  - [Erstellen eines neuen Custom Vision Projekts](#erstellen-eines-neuen-custom-vision-projekts)
   - [Tags zum Projekt hinzufügen und Bilder hochladen](#tags-zum-projekt-hinzufügen-und-bilder-hochladen)
   - [Das Projekt trainieren](#das-projekt-trainieren)
   - [Die aktuelle Iteration veröffentlichen](#die-aktuelle-iteration-veröffentlichen)
@@ -25,25 +25,35 @@ Als Beispiel kannst du die Bilder der Simpsons im [dataset](../dataset) Ordner b
 
 ## Setup
 
-Für die Übung benötigen wir [Python 3.x](https://www.python.org/) und [pip](https://pip.pypa.io/en/stable/).
+Für die Übung benötigst du [Python 3.x](https://www.python.org/) und [pip](https://pip.pypa.io/en/stable/).
 
-Logge dich auf dem [Azure Portal](https://portal.azure.com/) ein und erstelle eine neue [Custom Vision Ressource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) in der Region "West Europe":
+Logge dich auf dem [Azure Portal](https://portal.azure.com/) ein und erstelle eine neue [Custom Vision Ressource](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesAllInOne) in der Region "West Europe".
+
+Verwende folgende Naming Conventions und benutze dein ipt-Kürzel als Prefix:
+
+| Asset Type         | Abkürzung | Beispiel             |
+| ------------------ | --------- | -------------------- |
+| Resource Group     | rg        | twe-rg-ievent21      |
+| Cognitive Services | cog       | twe-cog-sdk-ievent21 |
 
 ![Create Custom Vision](images/create_custom_vision.png)
 
-Wir brauchen folgende Informationen für den Python Code:
+Du brauchst folgende Informationen für den Python Code:
 
 * Endpoint
 * Training Key
 * Prediction Key
+* Prediction Resource ID
+
+"Endpoint", "Training Key" und "Prediction Key" findest du unter "Keys and Enpoint":
 
 ![Keys and endpoints](images/keys_and_endpoints.png)
 
-* Prediction Resource ID
+Die "Prediction Resource ID" findest du unter "Properties":
 
 ![Properties](images/properties.png)
 
-Um eine Custom Vision Applikation in Python zu schreiben, benötigen wir die Custom Vision Client Bibliothek:
+Um eine Custom Vision Applikation in Python zu schreiben, benötigst du die Custom Vision Client Bibliothek:
 
 ```bash
 pip install azure-cognitiveservices-vision-customvision
@@ -51,7 +61,7 @@ pip install azure-cognitiveservices-vision-customvision
 
 ## Python Applikation erstellen
 
-Erstelle eine neue Python-Datei und importiere die folgenden Bibliotheken:
+Erstelle eine neue Python Applikation und importiere die folgenden Bibliotheken:
 
 ```python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -71,7 +81,7 @@ prediction_key = "PASTE_YOUR_CUSTOM_VISION_PREDICTION_SUBSCRIPTION_KEY_HERE"
 prediction_resource_id = "PASTE_YOUR_CUSTOM_VISION_PREDICTION_RESOURCE_ID_HERE"
 ```
 
-Vergiss nicht, die Schlüssel aus deinem Code zu entfernen, wenn du fertig bist, und sie niemals öffentlich zu veröffentlichen (siehe [Azure Cognitive Services security](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-security)).
+Vergiss nicht, die Schlüssel aus deinem Code zu entfernen, wenn du fertig bist, und sie niemals öffentlich zu publizieren (siehe [Azure Cognitive Services security](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-security)).
 
 ## Code Snippets
 
@@ -85,7 +95,7 @@ prediction_credentials = ApiKeyCredentials(
 predictor = CustomVisionPredictionClient(ENDPOINT, prediction_credentials)
 ```
 
-### Erstellen eines neuen Custom Vision-Projekts
+### Erstellen eines neuen Custom Vision Projekts
 
 ```python
 # Configure the iteration name
@@ -177,13 +187,15 @@ with open(os.path.join(test_image_location, "maggie_simpson_0.jpg"), "rb") as im
 
 ## Die Applikation ausführen
 
-[custom_vision_sdk_exercise.py](custom_vision_sdk_exercise.py) ist eine Beispielsapplikation und erstellt ein Modell zur Klassifizierung der Simpsons:
+[`custom_vision_sdk_exercise.py`](custom_vision_sdk_exercise.py) ist eine Beispielsapplikation und erstellt ein Modell zur Klassifizierung der Simpsons:
 
 ```bash
 python custom_vision_sdk_exercise.py
 ```
 
-Auf der [Custom Vision Website](https://www.customvision.ai/projects) kannst du Status von deinem Projekt anschauen.
+Das Ausführen dauert circa 10 Minuten.
+
+Auf der [Custom Vision Website](https://www.customvision.ai/projects) kannst du den Status von deinem Projekt anschauen.
 
 ## Referenzen
 
