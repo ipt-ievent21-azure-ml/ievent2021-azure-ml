@@ -1,8 +1,8 @@
 # Azure Machine Learning: Automated ML
 
-|              |                                  |
-| ------------ | -------------------------------- |
-| **Einsteiger** | ![Einsteiger](../../images/beginner.png) |
+|                |                                          |            |
+| -------------- | ---------------------------------------- | ---------- |
+| **Einsteiger** | ![Einsteiger](../../images/beginner.png) | 45 Minuten |
 
 - [Einführung](#einführung)
 - [Setup](#setup)
@@ -15,7 +15,7 @@
 
 ## Einführung
 
-In dieser Übung trainierst du ein Predictive Machine Learning Modell mit AutoML. AutoML automatisiert die Datenaufbereitung und das Modelltraining vollständig ohne Code schreiben zu müssen.
+In dieser Übung trainierst du ein Predictive Machine Learning Modell mit AutoML. AutoML automatisiert die Datenaufbereitung und das Modelltraining vollständig und du brauchst keinen Code zu schreiben.
 
 Du lernst dabei folgendes:
 
@@ -29,7 +29,7 @@ Du lernst dabei folgendes:
 
 Du brauchst einen Azure Machine Learning Workspace. Falls du noch keinen erstellt hast, findest du auf [Create and manage Azure Machine Learning workspaces](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-manage-workspace?tabs=azure-portal#create-a-workspace) eine Anleitung dazu.
 
-Öffne das [Microsoft Azure Machine Learning Studio](https://ml.azure.com/) und [erstelle einen neuen Workspace](https://portal.azure.com/#create/Microsoft.MachineLearningServices). Verwende folgende Naming Conventions und benutze dein ipt-Kürzel als Prefix:
+Öffne das [Microsoft Azure Machine Learning Studio](https://ml.azure.com/) und [erstelle einen neuen Workspace](https://portal.azure.com/#create/Microsoft.MachineLearningServices). Verwende folgende Naming Conventions und benutze dein ipt-Kürzel als Präfix:
 
 | Asset Type                       | Abkürzung | Beispiel          |
 | -------------------------------- | --------- | ----------------- |
@@ -50,7 +50,11 @@ Um zu beginnen, wähle im [Azure Machine Learning Studio ](https://ml.azure.com/
 
 ![Create Compute Cluster](images/create_compute_cluster_1.png)
 
+Konfiguriere die Virtuelle Maschine:
+
 ![Create Compute Cluster](images/create_compute_cluster_2.png)
+
+Konfiguriere die erweiterten Einstellungen:
 
 ![Create Compute Cluster](images/create_compute_cluster_3.png)
 
@@ -58,7 +62,7 @@ Der neue Cluster hat 0 Nodes, es fallen also keine Rechenkosten an. Es entstehen
 
 ## Erstellen eines Datensets
 
-In dieser Übung verwenden wir das Diabetes-Dataset. Dieses Datenset ist Teil der [Azure Open Datasets](https://azure.microsoft.com/en-us/services/open-datasets/#overview).
+In dieser Übung verwendest du das Diabetes Dataset. Dieses Datenset ist Teil der [Azure Open Datasets](https://azure.microsoft.com/en-us/services/open-datasets/#overview).
 
 Um das Dataset zu erstellen, öffne im Menü auf der linken Seite "Dataset", klicke auf "Create dataset" und wähle "From Open Dataset" aus:
 
@@ -96,7 +100,7 @@ Wähle "Regression" als Task Type:
 
 ![AutoML: Select task type](images/automl_4.png)
 
-AutoML benötigt etwa eine Stunde, um das Training aller Modelle abzuschliessen. Du musst nicht bis zum Schluss warten und kannst auch vor dem Abschluss eines der Modelle deployen.
+AutoML benötigt etwa 20 Minuten, um das Training aller Modelle abzuschliessen. Du musst nicht bis zum Schluss warten und kannst auch vor dem Abschluss eines der Modelle deployen.
 
 ## Das beste Modell deployen
 
@@ -108,11 +112,11 @@ Wähle das beste Modell und klicke "Deploy", um das Fenster "Deploy a model" zu 
 
 ![Deploy model](images/deploy_model.png)
 
-Nach dem Klicken auf "Deploy", solltest du eine Meldung sehen, dass das Modell erfolgreich bereitgestellt wurde.
+Nach dem Klicken auf "Deploy", solltest du eine Meldung sehen, dass das Modell erfolgreich bereitgestellt wurde. Das Deployment dauert circa 5 Minuten.
 
 ## Das Modell als Webservice aufrufen
 
-Unter "Endpoints" findest du das "diabetes-model" und den entsprechenden REST Endpoint:
+Unter "Endpoints" findest du das "diabetes-automl-model" und den entsprechenden REST Endpoint:
 
 ![Deploy model](images/endpoint_1.png)
 
