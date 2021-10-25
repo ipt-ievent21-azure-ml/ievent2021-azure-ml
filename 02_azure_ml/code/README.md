@@ -82,15 +82,11 @@ y_df = y.to_pandas_dataframe()
 X_df.info()
 ```
 
-Der Pandas Data Fram `X_df` enthält 10 Inputvariablen für die Ausgangssituation, wie Alter, Geschlecht, Body-Mass-Index, durchschnittlicher Blutdruck und sechs Blutserum-Messungen.
+Der Pandas Data Frame `X_df` enthält 10 Inputvariablen für die Ausgangssituation, wie Alter, Geschlecht, Body-Mass-Index, durchschnittlicher Blutdruck und sechs Blutserum-Messungen.
 
 Der Pandas Data Frame `y_df` ist die Zielvariable. Diese Zielvariable ist ein quantitatives Mass für die Diabetesentwicklung ein Jahr nach der Ausgangssituation.
 
 ### Modell trainieren
-
-Create a new code cell in your notebook. Then copy the following code and paste it into the cell. This code snippet constructs a ridge regression model and serializes the model by using the Python pickle format.
-
----
 
 Erstelle eine neue Codezelle  und füge den folgenden Code ein:
 
@@ -100,7 +96,7 @@ import joblib
 from sklearn.linear_model import Ridge
 
 model = Ridge().fit(X_df,y_df)
-joblib.dump(model, 'sklearn_regression_model.pkl')
+joblib.dump(model, 'diabetes_sklearn_model.pkl')
 ```
 
 Dieses Codeschnipsel konstruiert ein [Ridge-Regressionsmodell](https://scikit-learn.org/stable/modules/linear_model.html#ridge-regression) und serialisiert das Modell mit Hilfe des [Python-Pickel-Formats](https://docs.python.org/3/library/pickle.html).
@@ -124,8 +120,8 @@ ws = Workspace.from_config()
 
 model = Model.register(
     workspace=ws,
-    model_name='my-sklearn-diabetes-model',         # Name of the registered model in your workspace.
-    model_path='./sklearn_regression_model.pkl',    # Local file to upload and register as a model.
+    model_name='diabetes-sklearn-model',         # Name of the registered model in your workspace.
+    model_path='./diabetes_sklearn_model.pkl',    # Local file to upload and register as a model.
     model_framework=Model.Framework.SCIKITLEARN,    # Framework used to create the model.
     model_framework_version=sklearn.__version__,    # Version of scikit-learn used to create the model.
     sample_input_dataset=X,
@@ -151,8 +147,8 @@ Um ein Modell für einen Web Service bereitzustellen, müssen ein Scoring Skript
 
 Das Scoring-Skript enthält zwei Methoden:
 
-* Die Methode `init()` wird beim Starten des Dienstes ausgeführt. Sie lädt das Modell (das automatisch aus der Modellregistrierung heruntergeladen wird) und deserialisiert es.
-* Die Methode `run(data)` wird ausgeführt, wenn ein Aufruf des Dienstes Eingabedaten enthält, die ausgewertet werden müssen.
+* Die Methode `init()` wird beim Starten des Services ausgeführt. Sie lädt das Modell (das automatisch aus der Modellregistrierung heruntergeladen wird) und deserialisiert es.
+* Die Methode `run(data)` wird ausgeführt, wenn ein Aufruf des Services Eingabedaten enthält, die ausgewertet werden müssen.
 
 Kopiere den folgenden Code und fügen ihn in eine neue Codezelle in deinem Notebook ein. Das Codeschnipsel hat eine "Cell Magic", die den Code in eine Datei namens `score.py` schreibt.
 
@@ -176,7 +172,7 @@ def init():
     global model
     # Replace filename if needed.
     path = os.getenv('AZUREML_MODEL_DIR') 
-    model_path = os.path.join(path, 'sklearn_regression_model.pkl')
+    model_path = os.path.join(path, 'diabetes_sklearn_model.pkl')
     # Deserialize the model file back into a sklearn model.
     model = joblib.load(model_path)
 
@@ -228,7 +224,7 @@ from azureml.core.model import InferenceConfig
 from azureml.core import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 
-environment = Environment('my-sklearn-environment')
+environment = Environment('diabetes-sklearn-environment')
 environment.python.conda_dependencies = CondaDependencies.create(pip_packages=[
     'azureml-defaults',
     'inference-schema[numpy-support]',
@@ -246,15 +242,15 @@ inference_config = InferenceConfig(entry_script='./score.py',environment=environ
 Um das Modell zu deployen, kopiere den folgenden Code und füge ihn in eine neue Zelle in deinem Notebook ein:
 
 ```python
-service_name = 'my-sklearn-diabetes-model'
+service_name = 'diabetes-sklearn-model'
 
 service = Model.deploy(ws, service_name, [model], inference_config, overwrite=True)
 service.wait_for_deployment(show_output=True)
 ```
 
-Die Bereitstellung des Dienstes kann 2 bis 4 Minuten dauern.
+Die Bereitstellung des Services kann bis zu 10 Minuten dauern.
 
-Wenn der Dienst erfolgreich bereitgestellt wurde, sollte folgendes angezeigt werden:
+Wenn der Service erfolgreich bereitgestellt wurde, sollte folgendes angezeigt werden:
 
 ```
 Tips: You can try get_logs(): https://aka.ms/debugimage#dockerlog or local deployment: https://aka.ms/debugimage#debug-locally to debug if deployment takes longer than 10 minutes.
