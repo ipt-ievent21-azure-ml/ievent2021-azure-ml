@@ -9,8 +9,8 @@ Die folgenden Tutorials benutzen Bildklassifizierung und je nach deiner Erfahrun
 
 |                      |                                                 |                                              |     |
 | -------------------- | ----------------------------------------------- | -------------------------------------------- | --- |
-| **Einsteiger**       | ![Einsteiger](../images/beginner.png)           | [Custom Vision: Website](./website/README.md) | 1h  |
-| **Fortgeschrittene** | ![Fortgeschrittene](../images/intermediate.png) | [Custom Vision: SDK](./sdk/README.md)         | 2h  |
+| **Einsteiger**       | ![Einsteiger](../images/beginner.png)           | [Custom Vision: Website](./website/README.md) | 20 Minuten  |
+| **Fortgeschrittene** | ![Fortgeschrittene](../images/intermediate.png) | [Custom Vision: SDK](./sdk/README.md)         | 20 Minuten  |
 
 Du kannst auch beide Methoden ausprobieren oder deine eigene Objekterkennung mit Custom Vision implementieren:
 
