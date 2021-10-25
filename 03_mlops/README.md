@@ -1,15 +1,15 @@
-# MLOps
+# MLOps: GitHub Actions
 
-|              |                                   |
-| ------------ | --------------------------------- |
-| **Experten** | ![Experten](../images/expert.png) |
+|              |                                   |            |
+| ------------ | --------------------------------- | ---------- |
+| **Experten** | ![Experten](../images/expert.png) | 90 Minuten |
 
 - [Einführung](#einführung)
 - [Setup](#setup)
 - [GitHub Workflow](#github-workflow)
 - [Repository erstellen](#repository-erstellen)
 - [Erstellen der Credentials für das Deployment](#erstellen-der-credentials-für-das-deployment)
-- [Das GitHub Secret konfigurieren](#das-github-secret-konfigurieren)
+- [GitHub Secret konfigurieren](#github-secret-konfigurieren)
 - [Workspace Parameter definieren](#workspace-parameter-definieren)
 - [Code ändern](#code-ändern)
 - [Anzeigen der Ressourcen](#anzeigen-der-ressourcen)
@@ -18,13 +18,13 @@
 
 ## Einführung
 
-Der klassische Weg um MLOps auf Azure einzurichten ist mit Azure DevOps und Azure Pipelines (siehe [MLOps with Azure ML](https://github.com/Microsoft/MLOpsPython)).
+Der klassische Weg, um MLOps auf Azure einzurichten ist mit Azure DevOps und Azure Pipelines (siehe [MLOps with Azure ML](https://github.com/Microsoft/MLOpsPython)).
 
-In diesem Tutorial benutzen wir GitHub Actions, um ein Modell auf Azure Machine Learning zu trainieren.
+Dieses Tutorial verwendet GitHub Actions, um ein Modell auf Azure Machine Learning zu trainieren.
 
 ## Setup
 
-Ausser einem Azure Account benötigen wir für dieses Tutorial einen GitHub Account. [Erstelle einen](https://github.com/join), falls du noch keinen hast.
+Ausser einem Azure Account benötigst du für dieses Tutorial einen GitHub Account. [Erstelle einen](https://github.com/join), falls du noch keinen hast.
 
 ## GitHub Workflow
 
@@ -36,7 +36,10 @@ Erstelle ein neues Repository aus dem [ML Ops with GitHub Actions and Azure Mach
 
 1. Öffne das [Template](https://github.com/machine-learning-apps/ml-template-azure) auf GitHub
 2. Wähle ["Use this template"](https://github.com/machine-learning-apps/ml-template-azure/generate)
-3. Erstelle ein neues Repository mit der Vorlage. Setze den Namen des Repositorys auf `ml-learning` oder einen Namen deiner Wahl.
+
+    ![GitHub template](images/github_template.png)
+
+3. Erstelle ein neues Repository mit der Vorlage. Setze den Namen des Repositorys auf `mlops-tutorial` oder einen Namen deiner Wahl
 
 ## Erstellen der Credentials für das Deployment
 
@@ -46,17 +49,19 @@ Führe den folgenden Befehl mit der [Azure Cloud Shell](https://shell.azure.com/
 
 ```bash
 az ad sp create-for-rbac --name "<app-name>" --role contributor \
-    --scopes /subscriptions/<subscription-id>/resourceGroups <group-name> \
+    --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name> \
     --sdk-auth
 ```
 
 Ersetze im obigen Beispiel die Platzhalter durch den Namen der App, den Service Principal Namen, deine Subscription ID und den Namen der Ressourcengruppe. Falls du noch keine eigene Ressourcengruppe hast, musst du zuerst eine erstellen. Verwende folgende Naming Conventions und benutze dein ipt-Kürzel als Prefix:
 
-| Asset Type                       | Abkürzung | Beispiel          |
-| -------------------------------- | --------- | ----------------- |
-| Resource Group                   | rg        | twe-rg-ievent21   |
+| Asset Type     | Abkürzung | Beispiel        |
+| -------------- | --------- | --------------- |
+| Resource Group | rg        | twe-rg-ievent21 |
 
-Die Ausgabe von `az ad sp create-for-rbac` ist ein JSON-Objekt mit den Anmeldeinformationen für die Rollenzuweisung. Kopiere dieses JSON-Objekt für später (siehe [Das GitHub Secret konfigurieren](#das-github-secret-konfigurieren)).
+![Azure Cloud Shell](images/azure_cloud_shell.png)
+
+Die Ausgabe von `az ad sp create-for-rbac` ist ein JSON-Objekt mit den Credentials für die Rollenzuweisung. Kopiere dieses JSON-Objekt für später (siehe [GitHub Secret konfigurieren](#github-secret-konfigurieren)).
 
 ```bash
   {
@@ -68,7 +73,7 @@ Die Ausgabe von `az ad sp create-for-rbac` ist ein JSON-Objekt mit den Anmeldein
   }
 ```
 
-## Das GitHub Secret konfigurieren
+## GitHub Secret konfigurieren
 
 Gehe zu deinem GitHub Repository und wähle "Settings > Secrets > New repository secret".
 
@@ -80,13 +85,13 @@ Füge die gesamte JSON-Ausgabe `az ad sp create-for-rbac` als Wert ein. Gib dem 
 
 Du musst die Parameter in der Datei `/.cloud/.azure/workspace.json` in deinem Repository ändern, damit die GitHub Actions den gewünschten Azure Machine Learning Workspace erstellen oder sich mit ihm verbinden. 
 
-Verwende für den Parameter `resource_group` denselben Wert, den du bei der Erstellung der Azure Anmeldedaten verwendet hast. Wenn du bereits einen Azure Machine Learning Workspace in dieser Ressourcengruppe hast, ändere den Parameter `name` in der JSON-Datei in den Namen deines Workspace. Wenn du möchtest, dass die Aktion einen neuen Workspace in dieser Ressourcengruppe erstellt, wähle einen Namen für deinen neuen Workspace und weise ihn dem Parameter `name` zu. Du kannst den Parameter `name` auch löschen, wenn du möchtest, dass die Aktion den Standardwert, also den Namen des Repositorys, verwendet.
+Verwende für den Parameter `resource_group` denselben Wert, den du bei der Erstellung der Azure Credentials verwendet hast. Wenn du bereits einen Azure Machine Learning Workspace in dieser Ressourcengruppe hast, ändere den Parameter `name` in der JSON-Datei in den Namen deines Workspace. Wenn du möchtest, dass die Aktion einen neuen Workspace in dieser Ressourcengruppe erstellt, wähle einen Namen für deinen neuen Workspace und weise ihn dem Parameter `name` zu. Du kannst den Parameter `name` auch löschen, wenn du möchtest, dass die Aktion den Standardwert, also den Namen des Repositorys, verwendet.
 
-Sobald du deine Änderungen in der Datei gespeichert hast, wird der vordefinierte GitHub-Workflow ausgelöst, der ein Modell auf Azure Machine Learning trainiert und bereitstellt. Überprüfe die Registerkarte "Actions", um zu sehen, ob deine Aktionen erfolgreich ausgeführt wurden.
+Sobald du deine Änderungen in der Datei gespeichert hast, wird der vordefinierte GitHub-Workflow ausgelöst, der ein Modell auf Azure Machine Learning trainiert und bereitstellt. Überprüfe die Registerkarte "Actions", um zu sehen, ob deine Aktionen erfolgreich ausgeführt wurden:
 
 ![Actions](images/actions.png)
 
-Das erste Training und Deployment dauert mehr als eine Stunde. Nachfolgende Trainings und Deployments werden schneller ausgeführt, weil die Infrastruktur schon besteht und nicht mehr neu erstellt werden muss.
+Das erste Training und Deployment dauert circa 75 Minuten. Nachfolgende Trainings und Deployments werden schneller ausgeführt, weil die Infrastruktur schon besteht und nicht mehr neu erstellt werden muss.
 
 ## Code ändern
 
