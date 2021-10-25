@@ -1,8 +1,8 @@
 # Azure Machine Learning: Code
 
-|              |                                  |
-| ------------ | -------------------------------- |
-| **Experten** | ![Experten](../../images/expert.png) |
+|              |                                      |            |
+| ------------ | ------------------------------------ | ---------- |
+| **Experten** | ![Experten](../../images/expert.png) | 60 Minuten |
 
 - [Einführung](#einführung)
 - [Setup](#setup)
@@ -65,7 +65,7 @@ Drücke dann Shift + Enter, Control + Enter oder klicke "Run cell":
 
 ## Erstellen eines Modells mit scikit-learn
 
-In diesem Tutorial verwenden wir das Diabetes Dataset von [Azure Open Datasets](https://azure.microsoft.com/en-us/services/open-datasets/#overview).
+In diesem Tutorial verwendest du das Diabetes Dataset von [Azure Open Datasets](https://azure.microsoft.com/en-us/services/open-datasets/#overview).
 
 ### Daten importieren
 
@@ -92,7 +92,7 @@ Create a new code cell in your notebook. Then copy the following code and paste 
 
 ---
 
-Erstelle eine neue Codezelle in deine Notebook und füge den folgenden Code ein:
+Erstelle eine neue Codezelle  und füge den folgenden Code ein:
 
 
 ```python
@@ -111,7 +111,7 @@ Neben dem Inhalt der Modelldatei selbst speichert ein registriertes Modell auch 
 
 Metadaten sind nützlich, um Modelle im Workspace zu verwalten und bereitzustellen.
 
-Kopieren den folgenden Code und fügen ihn in eine neue Code-Zelle in deinem Notebook ein um das Modell zusammen mit den Metadaten zu registrieren:
+Kopieren den folgenden Code und fügen ihn in eine neue Code-Zelle in deinem Notebook ein, um das Modell zusammen mit den Metadaten zu registrieren:
 
 ```python
 import sklearn
@@ -154,7 +154,7 @@ Das Scoring-Skript enthält zwei Methoden:
 * Die Methode `init()` wird beim Starten des Dienstes ausgeführt. Sie lädt das Modell (das automatisch aus der Modellregistrierung heruntergeladen wird) und deserialisiert es.
 * Die Methode `run(data)` wird ausgeführt, wenn ein Aufruf des Dienstes Eingabedaten enthält, die ausgewertet werden müssen.
 
-Kopiere den folgenden Code und fügen ihn in eine neue Codezelle in deine Notebook ein. Das Codeschnipsel hat eine "Cell Magic", die den Code in eine Datei namens `score.py` schreibt.
+Kopiere den folgenden Code und fügen ihn in eine neue Codezelle in deinem Notebook ein. Das Codeschnipsel hat eine "Cell Magic", die den Code in eine Datei namens `score.py` schreibt.
 
 ```python
 %%writefile score.py
@@ -219,9 +219,9 @@ def run(data):
 
 ### Definiere das benutzerdefinierte Environment
 
-Als nächstes definieren wir das Environment für die Bewertung des Modells. Definiere im Environment die Python Pakete, wie z. B. `pandas` und `scikit-learn`, die das Scoring Script (`score.py`) benötigt.
+Als nächstes definierst du das Environment für die Bewertung des Modells. Definiere im Environment die Python Pakete, wie z. B. `pandas` und `scikit-learn`, die das Scoring Script (`score.py`) benötigt.
 
-Um das Environment zu definieren, kopiere den folgenden Code und fügen ihn in eine neue Zelle in deine Notebook ein:
+Um das Environment zu definieren, kopiere den folgenden Code und fügen ihn in eine neue Zelle in deinem Notebook ein:
 
 ```python
 from azureml.core.model import InferenceConfig
@@ -243,7 +243,7 @@ inference_config = InferenceConfig(entry_script='./score.py',environment=environ
 
 ### Model deployen
 
-Um das Modell zu deployen, kopiere den folgenden Code und füge ihn in eine neue Zelle in deine Notebook ein:
+Um das Modell zu deployen, kopiere den folgenden Code und füge ihn in eine neue Zelle in deinem Notebook ein:
 
 ```python
 service_name = 'my-sklearn-diabetes-model'
@@ -265,7 +265,7 @@ ACI service creation operation finished, operation "Succeeded"
 
 ### Web Service testen
 
-Es wird empfohlen den Web Service zu testen, um sicherzustellen, dass er wie erwartet funktioniert. Kopiere en folgenden Code und füge ihn in eine neue Codezelle in deine Notebook ein, um den Service zu testen:
+Es wird empfohlen den Web Service zu testen, um sicherzustellen, dass er wie erwartet funktioniert. Kopiere en folgenden Code und füge ihn in eine neue Codezelle in deinem Notebook ein, um den Service zu testen:
 
 ```python
 import json

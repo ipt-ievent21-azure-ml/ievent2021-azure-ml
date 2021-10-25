@@ -1,8 +1,8 @@
 # Azure Machine Learning: Designer
 
-|                      |                                                    |
-| -------------------- | -------------------------------------------------- |
-| **Fortgeschrittene** | ![Fortgeschrittene](../../images/intermediate.png) |
+|                      |                                                    |            |
+| -------------------- | -------------------------------------------------- | ---------- |
+| **Fortgeschrittene** | ![Fortgeschrittene](../../images/intermediate.png) | 60 Minuten |
 
 - [Einführung](#einführung)
 - [Setup](#setup)
@@ -35,17 +35,21 @@ Du brauchst einen Azure Machine Learning Workspace. Falls du noch keinen erstell
 
 In diesem Abschnitt erstellst du eine Compute Instanz. Compute Instanzen werden zum Trainieren von Modellen für Machine Learning verwendet. Du erstellst auch einen Inference Cluster, um das bereitgestellte Modell für die Echtzeitbewertung zu hosten.
 
-Melde dich beim [Azure Machine Learning Studio ](https://ml.azure.com/) an und wähle im Menü auf der linken Seite "Compute" und dann "New":
+Melde dich beim [Azure Machine Learning Studio](https://ml.azure.com/) an und wähle im Menü auf der linken Seite "Compute" und dann "New":
 
 ![Create compute instance](images/create_compute_instance_1.png)
 
+Konfiguriere die Virtuelle Maschine:
+
 ![Configure required settings](images/create_compute_instance_2.png)
+
+Konfiguriere die erweiterten Einstellungen:
 
 ![Configure advanced settings](images/create_compute_instance_3.png)
 
 Die Compute Instanz kann auch zum Erstellen und Ausführen von Notebooks verwendet werden.
 
-Die Bereitstellung der Maschine dauert etwa 4 Minuten.
+Die Bereitstellung der Virtuellen Maschine dauert etwa 4 Minuten.
 
 ## Erstellen eines Inference Clusters
 
@@ -57,7 +61,7 @@ Wähle die Region "West Europe" und die VM Grösse "Standard_D11_v2":
 
 ![Create inference cluster](images/create_inference_cluster_2.png)
 
-Gib dem Cluster einen Namen, wähle "Dev-test" und konfiguriere die Anzahl Nodes auf "2":
+Gib dem Cluster einen Namen, wähle "Dev-test" und konfiguriere die Anzahl Nodes auf "4":
 
 ![Create inference cluster](images/create_inference_cluster_3.png)
 
@@ -99,7 +103,7 @@ Verbinde nun die Komponenten miteinander:
 
 Abschliessend muss noch die Zielvariable in der Komponente "Train Model" konfiguriert werden:
 
-![Configure target variable](images/designer_5.png)
+![Configure target variable](images/designer_6.png)
 
 Nun kann das Modell submitted werden:
 
@@ -137,13 +141,15 @@ Nun kann das die Inference Pipeline submitted werden:
 
 ![Submit pipeline](images/deploy_5.png)
 
+Das Submitten dauert etwa 5 Minuten.
+
 Nachdem die Inference Pipeline erfolgreich ausgeführt wurde, kann das Modell auf dem Inference Cluster bereitgestellt werden:
 
-![Submit pipeline](images/deploy_5.png)
+![Submit pipeline](images/deploy_6.png)
 
 ## Das Modell als Webservice aufrufen
 
-Es dauert einige Minuten bis der Endpoint bereit ist. Gehe zu "Endpoint" und wähle "my-diabetes-model" aus:
+Das Deployment dauert circa 5 Minuten. Gehe zu "Endpoint" und wähle "diabetes-designer-model" aus:
 
 ![Endpoint details](images/consume_1.png)
 
