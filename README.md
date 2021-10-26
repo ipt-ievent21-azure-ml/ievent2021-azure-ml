@@ -30,8 +30,8 @@ Je nach deiner Erfahrung kannst du dir auswählen, welches Tutorial du gerne mac
 Azure Custom Vision ist ein Bilderkennungsdienst, mit dem du deine eigenen Bilderkennungsmodelle erstellen, einsetzen und verbessern kannst. Ein Bilderkennungsmodell versieht Bilder mit Labels (die Klassifizierungen oder Objekte darstellen), die auf den erkannten visuellen Merkmalen basieren. Im Gegensatz zum Computer Vision Service kannst du bei Custom Vision deine eigenen Labels angeben und eigene Modelle trainieren, um sie zu erkennen.
 
 Die Custom Vision-Funktionalität lässt sich in zwei Bereiche unterteilen:
-- Bei der Bildklassifizierung werden einem Bild eine oder mehrere Labels zugewiesen
-- Die Objekterkennung ist ähnlich, gibt aber auch die Koordinaten im Bild zurück, an denen die angewandte(n) Labels zu finden sind
+* Bei der Bildklassifizierung werden einem Bild eine oder mehrere Labels zugewiesen
+* Die Objekterkennung ist ähnlich, gibt aber auch die Koordinaten im Bild zurück, an denen die angewandte(n) Labels zu finden sind
 
 Die folgenden Tutorials benutzen Bildklassifizierung und je nach deiner Erfahrung kannst du aus den folgenden zwei Methoden auswählen:
 
@@ -40,10 +40,7 @@ Die folgenden Tutorials benutzen Bildklassifizierung und je nach deiner Erfahrun
 | **Einsteiger**       | ![Einsteiger](./images/beginner.png)           | [Custom Vision: Website](01_custom_vision/website/README.md) | 20 Minuten |
 | **Fortgeschrittene** | ![Fortgeschrittene](./images/intermediate.png) | [Custom Vision: SDK](01_custom_vision/sdk/README.md)         | 20 Minuten |
 
-Du kannst auch beide Methoden ausprobieren oder deine eigene Objekterkennung mit Custom Vision implementieren:
-
-* [Quickstart: Build an object detector with the Custom Vision website](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/get-started-build-detector)
-* [Quickstart: Create an object detection project with the Custom Vision client library](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/quickstarts/object-detection?tabs=visual-studio&pivots=programming-language-python)
+Du kannst auch beide Methoden ausprobieren.
 
 ## Azure Machine Learning
 

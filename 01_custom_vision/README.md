@@ -12,10 +12,7 @@ Die folgenden Tutorials benutzen Bildklassifizierung und je nach deiner Erfahrun
 | **Einsteiger**       | ![Einsteiger](../images/beginner.png)           | [Custom Vision: Website](./website/README.md) | 20 Minuten  |
 | **Fortgeschrittene** | ![Fortgeschrittene](../images/intermediate.png) | [Custom Vision: SDK](./sdk/README.md)         | 20 Minuten  |
 
-Du kannst auch beide Methoden ausprobieren oder deine eigene Objekterkennung mit Custom Vision implementieren:
-
-* [Quickstart: Build an object detector with the Custom Vision website](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/get-started-build-detector)
-* [Quickstart: Create an object detection project with the Custom Vision client library](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/quickstarts/object-detection?tabs=visual-studio&pivots=programming-language-python)
+Du kannst auch beide Methoden ausprobieren.
 
 ## Referenzen
 
